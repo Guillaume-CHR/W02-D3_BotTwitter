@@ -62,12 +62,14 @@
 	def stream_twitter
 		client_stat = login_twitter_static
 		client_stream = login_twitter_stream
+		
 		if (client_stat != nil && client_stream != nil)
   			client_stream.filter(track: "#bonjour_monde") do |tweet|
   				puts "Follow & Like: #{tweet.user.screen_name}"
   				puts "#{tweet.text}\n"
   				client_stat.favorite(tweet.id)
   				client_stat.follow(tweet.user.screen_name)
+  				puts ""
   			end
 		else 
 			puts "You're not connected to Twitter -- cuicui ---"
@@ -77,5 +79,4 @@
 # End of bot_twitter .........................................................
 #.............................................................................
 #.............................................................................
-
 puts stream_twitter
