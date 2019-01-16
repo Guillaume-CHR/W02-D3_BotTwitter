@@ -64,6 +64,8 @@
 		client_stream = login_twitter_stream
 		if (client_stat != nil && client_stream != nil)
   			client_stream.filter(track: "#bonjour_monde") do |tweet|
+  				puts "Follow & Like: #{tweet.user.screen_name}"
+  				puts "#{tweet.text}\n"
   				client_stat.favorite(tweet.id)
   				client_stat.follow(tweet.user.screen_name)
   			end
